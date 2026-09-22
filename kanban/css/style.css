@@ -1,0 +1,102 @@
+/* Глобальний reset */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* Базова типографіка та фон */
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #222;
+	background-color: #f4f5f7;
+}
+
+/* Header */
+header {
+	background-color: #ffffff;
+	padding: 16px 20px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+	margin: 0;
+	font-size: 1.75rem;
+	color: #222;
+}
+
+/* Main і Section-колонки */
+main {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+}
+
+section {
+	padding: 12px;
+	background-color: #ebecf0;
+	border-radius: 8px;
+}
+
+#new-task {
+	flex: 0 0 100%;
+	width: 100%;
+}
+
+#todo,
+#in-progress,
+#done {
+	flex: 1 1 0;
+	min-width: 220px;
+}
+
+section h2 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	font-size: 1.25rem;
+	color: #222;
+}
+
+/* Картки завдань (article) */
+article,
+.card {
+	padding: 10px;
+	margin-bottom: 8px;
+	border-radius: 6px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+	background-color: #ffffff;
+}
+
+article h3 {
+	margin: 0 0 6px 0;
+	font-size: 1rem;
+	color: #222;
+}
+
+article p {
+	margin: 0;
+	font-size: 0.875rem;
+	color: #555;
+}
+
+/* Aside */
+aside {
+	max-width: 1100px;
+	margin: 0 auto 20px;
+	padding: 16px;
+	background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+}
+
+/* Footer */
+footer {
+	text-align: center;
+	padding: 20px;
+	font-size: 0.875rem;
+	color: #666;
+}
