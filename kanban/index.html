@@ -1,103 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kanban</title>
+		<link rel="stylesheet" href="css/style.css">
+	</head>
 
-<body>
+	<body>
 
-    <header>
-        <h1>Kanban</h1>
-        <nav aria-label="Main navigation">
-            <ul>
-                <li><a href="#todo">To-Do</a></li>
-                <li><a href="#in-progress">In progress</a></li>
-                <li><a href="#done">Done</a></li>
-                <li><a href="#stats">Statistics</a></li>
-            </ul>
-        </nav>
-    </header>
+		<header>
+			<h1>Kanban</h1>
+			<nav aria-label="Main navigation">
+				<ul>
+					<li><a href="#todo">To-Do</a></li>
+					<li><a href="#in-progress">In progress</a></li>
+					<li><a href="#done">Done</a></li>
+					<li><a href="#stats">Statistics</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
+		<main>
 
-        <section id="new-task">
-            <h2>New task</h2>
-            <form action="#" method="post">
-                <div>
-                    <label for="task-title">Card name:</label>
-                    <input type="text" id="task-title" name="task-title" placeholder="For example: wash dishes"
-                        required>
-                </div>
-                <div>
-                    <label for="task-column">Column:</label>
-                    <select id="task-column" name="task-column">
-                        <option value="todo">To-Do</option>
-                        <option value="in-progress">In progress</option>
-                        <option value="done">Done</option>
-                    </select>
-                </div>
-                <button type="submit">Add task</button>
-            </form>
-        </section>
+			<section id="new-task">
+				<h2>New task</h2>
+				<form action="#" method="post">
+					<div>
+						<label for="task-title">Card name:</label>
+						<input type="text" id="task-title" name="task-title" placeholder="For example: wash dishes" required>
+					</div>
+					<div>
+						<label for="task-column">Column:</label>
+						<select id="task-column" name="task-column">
+							<option value="todo">To-Do</option>
+							<option value="in-progress">In progress</option>
+							<option value="done">Done</option>
+						</select>
+					</div>
+					<button type="submit">Add task</button>
+				</form>
+			</section>
 
-        <!-- Column 1 -->
-        <section id="todo">
-            <h2>To-Do</h2>
+			<!-- Column 1 -->
+			<section id="todo">
+				<h2>To-Do</h2>
 
-            <article>
-                <h3>Prepare API specification</h3>
-                <p>Describe endpoints for retrieving the list of columns and cards.</p>
-            </article>
+				<article>
+					<h3>Prepare API specification</h3>
+					<p>Describe endpoints for retrieving the list of columns and cards.</p>
+				</article>
 
-            <article>
-                <h3>Create database</h3>
-                <p>Deploy PostgreSQL and set up table migrations.</p>
-            </article>
-        </section>
+				<article>
+					<h3>Create database</h3>
+					<p>Deploy PostgreSQL and set up table migrations.</p>
+				</article>
+			</section>
 
-        <!-- Column 2 -->
-        <section id="in-progress">
-            <h2>In progress</h2>
+			<!-- Column 2 -->
+			<section id="in-progress">
+				<h2>In progress</h2>
 
-            <article>
-                <h3>Semantic board markup</h3>
-                <p>Markup the page using header, main, section, article, and footer.</p>
-            </article>
-        </section>
+				<article>
+					<h3>Semantic board markup</h3>
+					<p>Markup the page using header, main, section, article, and footer.</p>
+				</article>
+			</section>
 
-        <!-- Column 3 -->
-        <section id="done">
-            <h2>Done</h2>
+			<!-- Column 3 -->
+			<section id="done">
+				<h2>Done</h2>
 
-            <article>
-                <h3>Initialize Git repository</h3>
-                <p>Initial commit and base project directory structure created.</p>
-            </article>
-        </section>
+				<article>
+					<h3>Initialize Git repository</h3>
+					<p>Initial commit and base project directory structure created.</p>
+				</article>
+			</section>
+		</main>
 
-    </main>
+		<aside id="stats" aria-label="Project statistics">
+			<h2>Board statistics</h2>
+			<ul>
+				<li>Total tasks: <strong>4</strong></li>
+				<li>In progress: <strong>1</strong></li>
+				<li>Completed: <strong>1</strong></li>
+			</ul>
+			<p><small>Tip: move cards to the right as they progress.</small></p>
+		</aside>
 
-    <!-- Step 5: aside for secondary content (statistics / quick notes) -->
-    <aside id="stats" aria-label="Project statistics">
-        <h2>Board statistics</h2>
-        <ul>
-            <li>Total tasks: <strong>4</strong></li>
-            <li>In progress: <strong>1</strong></li>
-            <li>Completed: <strong>1</strong></li>
-        </ul>
-        <p><small>Tip: move cards to the right as they progress.</small></p>
-    </aside>
+		<footer>
+			<p>&copy; 2026 Kanban Board. Web development learning project.</p>
+		</footer>
 
-    <!-- Step 6: footer with authorship and year -->
-    <footer>
-        <p>&copy; 2026 Kanban Board. Web development learning project.</p>
-    </footer>
-
-    <script src="js/app.js"></script>
-</body>
-
+		<script src="js/app.js"></script>
+	</body>
 </html>
