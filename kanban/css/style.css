@@ -4,11 +4,11 @@
 
 body {
 	margin: 0;
-	font-family: system-ui, sans-serif;
+	font-family: 'Inter', system-ui, -apple-system, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #222;
-	background-color: #f4f5f7;
+	color: #1e293b;
+	background-color: #f8fafc;
 }
 
 img {
@@ -19,7 +19,7 @@ img {
 header {
 	background-color: #ffffff;
 	padding: 16px 20px;
-	border-bottom: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e2e8f0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -29,8 +29,9 @@ header {
 
 header h1 {
 	margin: 0;
-	font-size: 1.75rem;
-	color: #222;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #1e293b;
 }
 
 main {
@@ -43,61 +44,194 @@ main {
 }
 
 section {
-	padding: 12px;
-	background-color: #ebecf0;
+	padding: 14px 12px;
+	background-color: #f1f5f9;
+	border: 1px solid #e2e8f0;
 	border-radius: 8px;
 }
 
 section h2 {
 	margin-top: 0;
-	margin-bottom: 8px;
-	font-size: 1.25rem;
-	color: #222;
+	margin-bottom: 10px;
+	font-size: 1.05rem;
+	font-weight: 600;
 }
 
-/* Task cards in columns using Flexbox with gap */
+#new-task {
+	background-color: #ffffff;
+	border: 1px solid #e2e8f0;
+	padding: 16px;
+}
+
+#new-task h2 {
+	color: #1e293b;
+	margin-bottom: 12px;
+}
+
+#new-task form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: flex-end;
+}
+
+#new-task .form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 1 1 200px;
+}
+
+#new-task label {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: #334155;
+}
+
+#new-task input[type="text"],
+#new-task select {
+	font-family: inherit;
+	font-size: 0.875rem;
+	padding: 8px 12px;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	background-color: #ffffff;
+	color: #1e293b;
+}
+
+#new-task input[type="text"]:focus,
+#new-task select:focus {
+	outline: none;
+	border-color: #2563eb;
+	box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+#new-task button[type="submit"] {
+	font-family: inherit;
+	font-size: 0.875rem;
+	font-weight: 600;
+	padding: 8px 16px;
+	background-color: #2563eb;
+	color: #ffffff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	align-self: flex-end;
+	transition: background-color 0.15s ease;
+}
+
+#new-task button[type="submit"]:hover {
+	background-color: #1d4ed8;
+}
+
+#todo {
+	border-top: 3px solid #3b82f6;
+}
+
+#todo h2 {
+	color: #1e40af;
+	border-bottom: 2px solid #3b82f6;
+	padding-bottom: 4px;
+}
+
+#in-progress {
+	border-top: 3px solid #f97316;
+}
+
+#in-progress h2 {
+	color: #9a3412;
+	border-bottom: 2px solid #f97316;
+	padding-bottom: 4px;
+}
+
+#done {
+	border-top: 3px solid #22c55e;
+}
+
+#done h2 {
+	color: #166534;
+	border-bottom: 2px solid #22c55e;
+	padding-bottom: 4px;
+}
+
 #todo,
 #in-progress,
 #done {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: 10px;
 }
 
 article,
 .card {
-	padding: 10px;
+	padding: 10px 12px;
 	border-radius: 6px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+	border: 1px solid #e2e8f0;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 	background-color: #ffffff;
+	transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+article:hover,
+.card:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 article h3 {
-	margin: 0 0 6px 0;
-	font-size: 1rem;
-	color: #222;
+	margin: 0 0 4px 0;
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.35;
+	color: #1e293b;
 }
 
 article p {
 	margin: 0;
-	font-size: 0.875rem;
-	color: #555;
+	font-size: 0.84375rem;
+	line-height: 1.45;
+	color: #475569;
 }
 
 aside {
 	max-width: 1100px;
 	margin: 0 16px 20px;
-	padding: 16px;
+	padding: 16px 20px;
 	background-color: #ffffff;
-	border: 1px solid #e0e0e0;
+	border: 1px solid #e2e8f0;
 	border-radius: 8px;
+}
+
+aside h2 {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: #1e293b;
+}
+
+aside ul {
+	margin: 0 0 8px 0;
+	padding-left: 20px;
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: #1e293b;
+}
+
+aside p {
+	margin: 0;
+}
+
+aside p small {
+	font-size: 0.8125rem;
+	color: #475569;
 }
 
 footer {
 	text-align: center;
 	padding: 20px 16px;
-	font-size: 0.875rem;
-	color: #666;
+	font-size: 0.8125rem;
+	color: #475569;
 }
 
 @media (min-width: 600px) {
@@ -105,6 +239,7 @@ footer {
 		grid-template-columns: repeat(3, 1fr);
 		overflow-x: auto;
 		padding: 20px;
+		gap: 16px;
 	}
 
 	#new-task {
@@ -135,7 +270,7 @@ footer {
 	#in-progress,
 	#done {
 		min-width: 0;
-		gap: 16px;
+		gap: 12px;
 	}
 
 	aside {

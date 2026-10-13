@@ -5,6 +5,10 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Kanban</title>
+		<!-- Google Fonts: Inter -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 
@@ -19,11 +23,11 @@
 			<section id="new-task">
 				<h2>New task</h2>
 				<form action="#" method="post">
-					<div>
+					<div class="form-group">
 						<label for="task-title">Card name:</label>
 						<input type="text" id="task-title" name="task-title" placeholder="For example: wash dishes" required>
 					</div>
-					<div>
+					<div class="form-group">
 						<label for="task-column">Column:</label>
 						<select id="task-column" name="task-column">
 							<option value="todo">To-Do</option>
@@ -36,35 +40,35 @@
 			</section>
 
 			<!-- Column 1 -->
-			<section id="todo">
+			<section id="todo" class="column">
 				<h2>To-Do</h2>
 
-				<article>
+				<article class="card">
 					<h3>Prepare API specification</h3>
 					<p>Describe endpoints for retrieving the list of columns and cards.</p>
 				</article>
 
-				<article>
+				<article class="card">
 					<h3>Create database</h3>
 					<p>Deploy PostgreSQL and set up table migrations.</p>
 				</article>
 			</section>
 
 			<!-- Column 2 -->
-			<section id="in-progress">
+			<section id="in-progress" class="column">
 				<h2>In progress</h2>
 
-				<article>
+				<article class="card">
 					<h3>Semantic board markup</h3>
 					<p>Markup the page using header, main, section, article, and footer.</p>
 				</article>
 			</section>
 
 			<!-- Column 3 -->
-			<section id="done">
+			<section id="done" class="column">
 				<h2>Done</h2>
 
-				<article>
+				<article class="card">
 					<h3>Initialize Git repository</h3>
 					<p>Initial commit and base project directory structure created.</p>
 				</article>
