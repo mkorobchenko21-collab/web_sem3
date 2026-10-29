@@ -1,5 +1,11 @@
 console.log('script.js connected');
 
+// Remove static placeholder card
+const staticCard = document.querySelector('.card');
+if (staticCard) {
+	staticCard.remove();
+}
+
 // Array of tasks for the Kanban board
 const tasks = [
 	{ title: 'Prepare API specification', status: 'To Do' },
@@ -9,10 +15,50 @@ const tasks = [
 	{ title: 'Configure editor and extensions', status: 'Done' }
 ];
 
+// Column containers
+const todoList = document.querySelector('#todo-list');
+const inProgressList = document.querySelector('#inprogress-list');
+const doneList = document.querySelector('#done-list');
+
 // Arrow function to check if a task has 'Done' status
 const isDone = task => task.status === 'Done';
 
-// Function to count the number of tasks in each status using a for...of loop and if statements
+// Render task cards into column containers
+function renderTasks(taskList) {
+	taskList.forEach(task => {
+		const card = document.createElement('article');
+		card.classList.add('card');
+		card.dataset.status = task.status;
+
+		if (isDone(task)) {
+			card.classList.add('done');
+		}
+
+		const title = document.createElement('h3');
+		title.textContent = task.title;
+		card.append(title);
+
+		if (task.status === 'To Do') {
+			todoList.append(card);
+		} else if (task.status === 'In Progress') {
+			inProgressList.append(card);
+		} else if (task.status === 'Done') {
+			doneList.append(card);
+		}
+	});
+}
+
+// Initial render of tasks
+renderTasks(tasks);
+
+// Update summary element with completed tasks count
+const doneCountElement = document.querySelector('#done-count');
+if (doneCountElement) {
+	const doneCount = tasks.filter(isDone).length;
+	doneCountElement.textContent = `Completed tasks: ${doneCount}`;
+}
+
+// Function to count the number of tasks in each status
 function countTasksByStatus(taskList) {
 	let todoCount = 0;
 	let inProgressCount = 0;
@@ -34,7 +80,7 @@ function countTasksByStatus(taskList) {
 	console.log(`Done: ${doneCount}`);
 }
 
-// Function to classify tasks using a condition and mark tasks with 'Done' status
+// Function to classify tasks and mark tasks with 'Done' status
 function displayClassifiedTasks(taskList) {
 	console.log('Task classification:');
 	for (const task of taskList) {
@@ -46,11 +92,10 @@ function displayClassifiedTasks(taskList) {
 	}
 }
 
-// Function calls demonstrating data processing
+// Demonstrate data processing in console
 countTasksByStatus(tasks);
-
 displayClassifiedTasks(tasks);
 
-// Call arrow function isDone with real data
+// Verify isDone arrow function
 console.log(`Checking isDone for "${tasks[0].title}":`, isDone(tasks[0]));
 console.log(`Checking isDone for "${tasks[3].title}":`, isDone(tasks[3]));

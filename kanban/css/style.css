@@ -156,7 +156,10 @@ section h2 {
 
 #todo,
 #in-progress,
-#done {
+#done,
+#todo-list,
+#inprogress-list,
+#done-list {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;

@@ -43,46 +43,35 @@
 			<!-- Column 1 -->
 			<section id="todo" class="column">
 				<h2>To-Do</h2>
-
-				<article class="card">
-					<h3>Prepare API specification</h3>
-					<p>Describe endpoints for retrieving the list of columns and cards.</p>
-				</article>
-
-				<article class="card">
-					<h3>Create database</h3>
-					<p>Deploy PostgreSQL and set up table migrations.</p>
-				</article>
+				<div id="todo-list">
+					<article class="card">
+						<h3>Prepare API specification</h3>
+						<p>Describe endpoints for retrieving the list of columns and cards.</p>
+					</article>
+				</div>
 			</section>
 
 			<!-- Column 2 -->
 			<section id="in-progress" class="column">
 				<h2>In progress</h2>
-
-				<article class="card">
-					<h3>Semantic board markup</h3>
-					<p>Markup the page using header, main, section, article, and footer.</p>
-				</article>
+				<div id="inprogress-list"></div>
 			</section>
 
 			<!-- Column 3 -->
 			<section id="done" class="column">
 				<h2>Done</h2>
-
-				<article class="card">
-					<h3>Initialize Git repository</h3>
-					<p>Initial commit and base project directory structure created.</p>
-				</article>
+				<div id="done-list"></div>
 			</section>
 		</main>
 
 		<aside id="stats" aria-label="Project statistics">
 			<h2>Board statistics</h2>
 			<ul>
-				<li>Total tasks: <strong>4</strong></li>
+				<li>Total tasks: <strong>5</strong></li>
 				<li>In progress: <strong>1</strong></li>
-				<li>Completed: <strong>1</strong></li>
+				<li>Completed: <strong>2</strong></li>
 			</ul>
+			<p id="done-count">Completed tasks: 0</p>
 			<p><small>Tip: move cards to the right as they progress.</small></p>
 		</aside>
 
