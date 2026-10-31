@@ -20,15 +20,34 @@ const todoList = document.querySelector('#todo-list');
 const inProgressList = document.querySelector('#inprogress-list');
 const doneList = document.querySelector('#done-list');
 
+// Form and input elements
+const taskForm = document.querySelector('#task-form');
+const titleInput = document.querySelector('#task-title');
+const columnSelect = document.querySelector('#task-column');
+
 // Arrow function to check if a task has 'Done' status
 const isDone = task => task.status === 'Done';
 
+// Update summary element with completed tasks count
+const doneCountElement = document.querySelector('#done-count');
+function updateDoneCount() {
+	if (doneCountElement) {
+		const doneCount = tasks.filter(isDone).length;
+		doneCountElement.textContent = `Completed tasks: ${doneCount}`;
+	}
+}
+
 // Render task cards into column containers
 function renderTasks(taskList) {
-	taskList.forEach(task => {
+	todoList.innerHTML = '';
+	inProgressList.innerHTML = '';
+	doneList.innerHTML = '';
+
+	taskList.forEach((task, index) => {
 		const card = document.createElement('article');
 		card.classList.add('card');
 		card.dataset.status = task.status;
+		card.dataset.index = index;
 
 		if (isDone(task)) {
 			card.classList.add('done');
@@ -48,15 +67,71 @@ function renderTasks(taskList) {
 	});
 }
 
-// Initial render of tasks
+// Initial render of tasks and statistics
 renderTasks(tasks);
+updateDoneCount();
 
-// Update summary element with completed tasks count
-const doneCountElement = document.querySelector('#done-count');
-if (doneCountElement) {
-	const doneCount = tasks.filter(isDone).length;
-	doneCountElement.textContent = `Completed tasks: ${doneCount}`;
+// Handle form submission to add a new task
+function handleFormSubmit(event) {
+	event.preventDefault();
+
+	const title = titleInput.value.trim();
+	const status = columnSelect.value;
+
+	tasks.push({ title, status });
+
+	todoList.innerHTML = '';
+	inProgressList.innerHTML = '';
+	doneList.innerHTML = '';
+	renderTasks(tasks);
+	updateDoneCount();
+
+	taskForm.reset();
 }
+
+// Form submission event listener
+if (taskForm) {
+	taskForm.addEventListener('submit', handleFormSubmit);
+}
+
+// Client-side validation for task title input
+if (titleInput) {
+	titleInput.addEventListener('input', () => {
+		if (titleInput.value.trim().length < 3) {
+			titleInput.setCustomValidity('Title must be at least 3 characters long');
+		} else {
+			titleInput.setCustomValidity('');
+		}
+	});
+}
+
+// Handle card click to cycle task status through columns
+function handleCardClick(event) {
+	const card = event.target.closest('.card');
+	if (!card) return;
+
+	const index = Number(card.dataset.index);
+	if (!Number.isNaN(index) && tasks[index]) {
+		if (tasks[index].status === 'To Do') {
+			tasks[index].status = 'In Progress';
+		} else if (tasks[index].status === 'In Progress') {
+			tasks[index].status = 'Done';
+		} else if (tasks[index].status === 'Done') {
+			tasks[index].status = 'To Do';
+		}
+
+		todoList.innerHTML = '';
+		inProgressList.innerHTML = '';
+		doneList.innerHTML = '';
+		renderTasks(tasks);
+		updateDoneCount();
+	}
+}
+
+// Delegate card click events across column containers
+if (todoList) todoList.addEventListener('click', handleCardClick);
+if (inProgressList) inProgressList.addEventListener('click', handleCardClick);
+if (doneList) doneList.addEventListener('click', handleCardClick);
 
 // Function to count the number of tasks in each status
 function countTasksByStatus(taskList) {

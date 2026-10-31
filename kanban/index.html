@@ -23,17 +23,17 @@
 
 			<section id="new-task">
 				<h2>New task</h2>
-				<form action="#" method="post">
+				<form id="task-form">
 					<div class="form-group">
 						<label for="task-title">Card name:</label>
-						<input type="text" id="task-title" name="task-title" placeholder="For example: wash dishes" required>
+						<input type="text" id="task-title" name="task-title" required pattern=".{3,}" placeholder="Enter task title...">
 					</div>
 					<div class="form-group">
 						<label for="task-column">Column:</label>
 						<select id="task-column" name="task-column">
-							<option value="todo">To-Do</option>
-							<option value="in-progress">In progress</option>
-							<option value="done">Done</option>
+							<option value="To Do">To Do</option>
+							<option value="In Progress">In Progress</option>
+							<option value="Done">Done</option>
 						</select>
 					</div>
 					<button type="submit">Add task</button>
